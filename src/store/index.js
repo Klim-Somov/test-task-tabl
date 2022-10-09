@@ -1,17 +1,33 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from "vue";
+import Vuex from "vuex";
 
-Vue.use(Vuex)
+import axios from "axios";
 
-export default new Vuex.Store({
+Vue.use(Vuex);
+const store = new Vuex.Store({
   state: {
+    items: [],
   },
+
   getters: {
+    items: (state) => state.items,
   },
-  mutations: {
-  },
+
   actions: {
+    GET_ITEMS_FROM_API: async ({ commit }) => {
+  
+      const { data } = await axios("http://localhost:3000/items", {
+        method: "GET",
+      });
+      commit("SET_ITEMS", data);
+    },
   },
-  modules: {
-  }
-})
+
+  mutations: {
+    SET_ITEMS(state, items) {
+      state.items = items;
+    },
+  },
+});
+
+export default store;
