@@ -3,9 +3,24 @@
     <Table-V :itemsData="ITEMS" />
 
     <div class="sortArea">
-      <SelectV @select="categorySelect" :selectedCategory="selectedCategory" :options="categories" />
-      <SelectV @select="operatorSelect" :selectedCategory="selectedOperator" :options="operators" />
-      <input @input="setAsced" placeholder="значение сортировки" type="number" />
+      <SelectV
+        @select="categorySelect"
+        :selectedCategory="selectedCategory"
+        :options="categories"
+      />
+      <SelectV
+        @select="operatorSelect"
+        :selectedCategory="selectedOperator"
+        :options="operators"
+      />
+      <div class="inputWrapper">
+        <input
+          class="input"
+          @input="setAsced"
+          placeholder="значение сортировки"
+          type="number"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -41,7 +56,9 @@ export default {
     ...mapActions(["GET_ITEMS_FROM_API"]),
     ...mapMutations(["SET_CATEGORY"]),
 
-    setAsced(e) {this.$store.commit("SET_ASCEDNUMBER", e.target.value )},
+    setAsced(e) {
+      this.$store.commit("SET_ASCEDNUMBER", e.target.value);
+    },
 
     categorySelect(option) {
       this.$store.commit("SET_CATEGORY", option);
@@ -71,7 +88,17 @@ export default {
 .sortArea {
   display: flex;
   gap: 20px;
-align-items: center;
-justify-content: center;
+  align-items: center;
+  justify-content: center;
+}
+.inputWrapper {
+  height: 20px;
+  border: 1px solid #2c3e50;
+  border-radius: 15px;
+}
+.input {
+  border: none;
+  background: transparent;
+  padding-left: 10px;
 }
 </style>

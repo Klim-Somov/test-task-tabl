@@ -51,12 +51,14 @@ export default {
   cursor: pointer;
 }
 .options {
+  background-color: rgb(219, 219, 219);
   z-index: 2;
   position: absolute;
   width: 100%;
   right: 0;
   top: 40;
-  border: 1px solid black;
+
+  border-radius: 15px;
 }
 .options > p {
   display: flex;
@@ -64,9 +66,10 @@ export default {
   cursor: pointer;
 }
 .options > p:hover {
-  background: #ccc5;
+  background: #ffff;
 }
 .title {
   border: 1px solid black;
+  border-radius: 15px;
 }
 </style>

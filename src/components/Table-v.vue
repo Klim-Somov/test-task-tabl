@@ -55,6 +55,7 @@ export default {
 
   methods: {
     ...mapActions(["GET_ITEMS_FROM_API"]),
+    
     async onClean() {
       this.GET_ITEMS_FROM_API();
     },
@@ -159,6 +160,7 @@ export default {
 .page {
   padding: 8px;
   border: solid 1px #ccc;
+  border-radius: 15px;
 }
 .page:hover {
   cursor: pointer;
@@ -168,7 +170,16 @@ export default {
   background-color: #ccc5;
 }
 .btn {
+  cursor: pointer;
+  padding: 8px;
+  border:none;
+  background-color: rgb(135, 200, 135);
+  color: white;
+  border-radius:15px;
   margin-left: 30px;
   margin-top: 40px;
+}
+.btn:hover {
+  background-color: rgb(12, 152, 245);
 }
 </style>
