@@ -4,6 +4,8 @@
 ```
 npm install
 ```
+запустить сервер командой 
+json-server --watch db.json
 
 ### Compiles and hot-reloads for development
 ```
